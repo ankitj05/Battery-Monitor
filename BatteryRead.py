@@ -12,13 +12,13 @@ def system():
         if battery_percent > 97 and battery_plugged is True and count is 0:
             count = 1
             toaster.show_toast('Battery Notification',"Laptop Battery Charged", duration=10)
-            requests.post("https://maker.ifttt.com/trigger/System/with/key/nlLVkjulk6dnLob3ii2lnwIbYw4bCVsJVn9jHQt3z8W",
+            requests.post("https://maker.ifttt.com/trigger/{Event Name}/with/key/{key}",
                           data={'value1': "Laptop Charged"})
 
         elif battery_percent < 25 and battery_plugged is False and count is 0:
             count = 1
             toaster.show_toast('Battery Notification', "Battery Low", icon_path="low_battery.png", duration=10)
-            requests.post("https://maker.ifttt.com/trigger/System/with/key/nlLVkjulk6dnLob3ii2lnwIbYw4bCVsJVn9jHQt3z8W",
+            requests.post("https://maker.ifttt.com/trigger/{Event Name}/with/key/{key}",
                           data={'value1': "Laptop Low battery"})
 
         elif 97 > battery_percent > 25 and count is 1:
